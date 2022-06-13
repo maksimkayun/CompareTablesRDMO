@@ -1,0 +1,11 @@
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\UIFormRDMO.exe.config
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\UIFormRDMO.exe
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\UIFormRDMO.pdb
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.csproj.AssemblyReference.cache
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.csproj.SuggestedBindingRedirects.cache
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.Properties.Resources.resources
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.csproj.GenerateResource.cache
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.csproj.CoreCompileInputs.cache
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.exe
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.pdb
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.Form1.resources
