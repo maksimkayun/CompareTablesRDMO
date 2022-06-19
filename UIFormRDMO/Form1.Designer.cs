@@ -34,6 +34,7 @@
             this.PathLabel = new System.Windows.Forms.Label();
             this.StartCompareBtn = new System.Windows.Forms.Button();
             this.ClearListsBtn = new System.Windows.Forms.Button();
+            this.BeginCompare_Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PathField
@@ -84,11 +85,19 @@
             this.ClearListsBtn.UseVisualStyleBackColor = true;
             this.ClearListsBtn.Click += new System.EventHandler(this.ClearListsBtn_Click);
             // 
+            // BeginCompare_Label
+            // 
+            this.BeginCompare_Label.Location = new System.Drawing.Point(232, 194);
+            this.BeginCompare_Label.Name = "BeginCompare_Label";
+            this.BeginCompare_Label.Size = new System.Drawing.Size(393, 21);
+            this.BeginCompare_Label.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BeginCompare_Label);
             this.Controls.Add(this.ClearListsBtn);
             this.Controls.Add(this.StartCompareBtn);
             this.Controls.Add(this.PathLabel);
@@ -99,6 +108,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label BeginCompare_Label;
 
         private System.Windows.Forms.Button StartCompareBtn;
 

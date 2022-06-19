@@ -17,6 +17,7 @@ namespace UIFormRDMO
             InitializeComponent();
             PathLabel.Text = UIFormRDMO.Menu.Path;
             PathField.Text = UIFormRDMO.Menu.Path;
+            BeginCompare_Label.Font = new Font("Times New Roman", 14, FontStyle.Bold);
         }
 
         private void GetPath_Click(object sender, EventArgs e)
@@ -28,11 +29,21 @@ namespace UIFormRDMO
 
         private void StartCompareBtn_Click(object sender, EventArgs e)
         {
+            BeginCompare_Label.Text = "";
             var args = new[] { "4" };
             UIFormRDMO.Menu.Start(args);
             
             args = new[] { "6" };
-            UIFormRDMO.Menu.Start(args);
+            var callback= UIFormRDMO.Menu.Start(args);
+            if (callback != "ok")
+            {
+                BeginCompare_Label.ForeColor = Color.Brown;
+            }
+            else
+            {
+                BeginCompare_Label.ForeColor = Color.Green;
+            }
+            BeginCompare_Label.Text = callback;
         }
 
         private void ClearListsBtn_Click(object sender, EventArgs e)

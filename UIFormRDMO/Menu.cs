@@ -70,7 +70,7 @@ namespace UIFormRDMO
             }
         }
 
-        public static void Start(string[] variants)
+        public static string Start(string[] variants)
         {
             BaseHelper helper = new BaseHelper(_context);
 
@@ -94,7 +94,7 @@ namespace UIFormRDMO
                     // }
                     
                     Path = variants[1];
-                    break;
+                    return "ok";
                 }
                 case 2:
                 {
@@ -132,9 +132,10 @@ namespace UIFormRDMO
                     catch (Exception e)
                     {
                         Console.WriteLine($"Что-то пошло не так! {e.Message}\n{e.StackTrace}");
+                        return $"При заполнении данных что-то пошло не так! Повторите попытку!";
                     }
 
-                    break;
+                    return "ok";
                 }
                 case 5:
                 {
@@ -146,9 +147,16 @@ namespace UIFormRDMO
                 case 6:
                 {
                     // Процедура сравнения
-                    Worker.Compare(_context);
-                    Worker.PrepareResultTable();
-                    helper.WriteToFile("res", Path);
+                    try
+                    {
+                        Worker.Compare(_context);
+                        Worker.PrepareResultTable();
+                        helper.WriteToFile("res", Path);
+                    }
+                    catch (Exception e)
+                    {
+                        return $"При сравнении что-то пошло не так! Проверьте путь и повторите попытку!";
+                    }
                     break;
                 }
                 default:
@@ -157,6 +165,8 @@ namespace UIFormRDMO
                     break;
                 }
             }
+
+            return "ok";
         }
     }
 }
