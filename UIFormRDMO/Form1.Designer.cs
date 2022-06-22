@@ -89,7 +89,7 @@
             // 
             this.BeginCompare_Label.Location = new System.Drawing.Point(232, 194);
             this.BeginCompare_Label.Name = "BeginCompare_Label";
-            this.BeginCompare_Label.Size = new System.Drawing.Size(393, 21);
+            this.BeginCompare_Label.Size = new System.Drawing.Size(507, 21);
             this.BeginCompare_Label.TabIndex = 5;
             // 
             // Form1

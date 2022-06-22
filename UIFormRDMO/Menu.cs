@@ -9,9 +9,10 @@ using UIFormRDMO.WorkingElements;
 
 namespace UIFormRDMO
 {
-    public class Menu
+    public static class Menu
     {
         internal static PersonsContext _context = new PersonsContext();
+        internal static BaseHelper helper = new BaseHelper(_context);
 
         public static int SelectOption(bool skipMenu = false)
         {
@@ -69,10 +70,10 @@ namespace UIFormRDMO
                 }
             }
         }
-
-        public static string Start(string[] variants)
+        
+        public static string StartWork(string[] variants)
         {
-            BaseHelper helper = new BaseHelper(_context);
+            
 
             switch (int.Parse(variants[0]))
             {
@@ -113,20 +114,22 @@ namespace UIFormRDMO
                 case 4:
                 {
                     // Заполнение данных
-                    Debug.Assert(Path != null, nameof(Path) + " != null");
                     try
                     {
-                        StreamReader reader = new StreamReader(Path);
                         StringBuilder stringBuilder = new StringBuilder();
-                        stringBuilder.Append(reader.ReadToEnd());
+                        using (StreamReader reader = new StreamReader(Path))
+                        {
+                            stringBuilder.Append(reader.ReadToEnd());
+                            reader.Close();
+                        }
 
-                        stringBuilder.Replace("\r", "");
+                        var input = stringBuilder.Replace("\r", "").ToString();
 
                         helper.InjectInDB(Table.PersonsList,
-                            stringBuilder.ToString().Split(Convert.ToChar("\n==\n"))[0]
+                            OutputInformationHelper.GetListsByString(input).firstTable
                                 .Split('\n').ToList());
                         helper.InjectInDB(Table.PersonsDB,
-                            stringBuilder.ToString().Split(Convert.ToChar("\n==\n"))[1]
+                            OutputInformationHelper.GetListsByString(input).secondTable
                                 .Split('\n').ToList());
                     }
                     catch (Exception e)

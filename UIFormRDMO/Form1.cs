@@ -23,33 +23,43 @@ namespace UIFormRDMO
         private void GetPath_Click(object sender, EventArgs e)
         {
             var args = new[] { "1", PathField.Text };
-            UIFormRDMO.Menu.Start(args);
+            UIFormRDMO.Menu.StartWork(args);
             PathLabel.Text = UIFormRDMO.Menu.Path;
         }
 
         private void StartCompareBtn_Click(object sender, EventArgs e)
         {
-            BeginCompare_Label.Text = "";
-            var args = new[] { "4" };
-            UIFormRDMO.Menu.Start(args);
+            try
+            {
+                BeginCompare_Label.Text = "";
+                var args = new[] { "4" };
+                var callback4 = UIFormRDMO.Menu.StartWork(args);
+                if (callback4 != "ok")
+                {
+                    throw new Exception(callback4);
+                }
             
-            args = new[] { "6" };
-            var callback= UIFormRDMO.Menu.Start(args);
-            if (callback != "ok")
+                args = new[] { "6" };
+                var callback6= UIFormRDMO.Menu.StartWork(args);
+                if (callback6 != "ok")
+                {
+                    throw new Exception(callback6);
+                }
+                BeginCompare_Label.ForeColor = Color.Green;
+                BeginCompare_Label.Text = callback6;
+            }
+            catch (Exception exception)
             {
                 BeginCompare_Label.ForeColor = Color.Brown;
+                BeginCompare_Label.Text = exception.Message;
             }
-            else
-            {
-                BeginCompare_Label.ForeColor = Color.Green;
-            }
-            BeginCompare_Label.Text = callback;
+            
         }
 
         private void ClearListsBtn_Click(object sender, EventArgs e)
         {
             var args = new[] { "5" };
-            UIFormRDMO.Menu.Start(args);
+            UIFormRDMO.Menu.StartWork(args);
         }
     }
 }

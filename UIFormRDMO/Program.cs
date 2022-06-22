@@ -16,6 +16,7 @@ namespace UIFormRDMO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Menu.Path = "";
             Application.Run(new Form1());
         }
     }

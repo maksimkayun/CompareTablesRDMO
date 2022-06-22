@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -27,35 +28,42 @@ namespace UIFormRDMO.WorkingElements
         {
             List<Person> persons = new List<Person>();
             // Если это из списка инструкторов, то даты не учитываем
-            if (table == Table.PersonsList)
+            try
             {
-                list.ForEach(e =>
+                if (table == Table.PersonsList)
                 {
-                    var person = new Person();
-                    person.FullName = e.Split(';')[0].ToString(CultureInfo.InvariantCulture);
-                    person.Position = e.Split(';')[1].ToString(CultureInfo.InvariantCulture);
-                    if (e.Split(';').Length > 2)
+                    list.ForEach(e =>
                     {
-                        person.DateAttest = e.Split(';')[2] == "" ? null : e.Split(';')[2];
-                        person.DateMed = e.Split(';')[3] == "" ? null : e.Split(';')[3];
-                    }
+                        var person = new Person();
+                        person.FullName = e.Split(';')[0].ToString(CultureInfo.InvariantCulture);
+                        person.Position = e.Split(';')[1].ToString(CultureInfo.InvariantCulture);
+                        if (e.Split(';').Length > 2)
+                        {
+                            person.DateAttest = e.Split(';')[2] == "" ? null : e.Split(';')[2];
+                            person.DateMed = e.Split(';')[3] == "" ? null : e.Split(';')[3];
+                        }
 
-                    persons.Add(person);
-                });
-            }
-            else
-            {
-                list.ForEach(e =>
+                        persons.Add(person);
+                    });
+                }
+                else
                 {
-                    var person = new Person();
-                    person.FullName = e.Split(';')[0].ToString(CultureInfo.InvariantCulture);
-                    person.Position = e.Split(';')[1].ToString(CultureInfo.InvariantCulture);
-                    person.DateAttest = e.Split(';')[2].ToString(CultureInfo.InvariantCulture);
-                    person.DateMed = e.Split(';')[3].ToString(CultureInfo.InvariantCulture);
-                    persons.Add(person);
-                });
+                    list.ForEach(e =>
+                    {
+                        var person = new Person();
+                        person.FullName = e.Split(';')[0].ToString(CultureInfo.InvariantCulture);
+                        person.Position = e.Split(';')[1].ToString(CultureInfo.InvariantCulture);
+                        person.DateAttest = e.Split(';')[2].ToString(CultureInfo.InvariantCulture);
+                        person.DateMed = e.Split(';')[3].ToString(CultureInfo.InvariantCulture);
+                        persons.Add(person);
+                    });
+                }
             }
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
             return persons;
         }
 
@@ -91,6 +99,7 @@ namespace UIFormRDMO.WorkingElements
 
         internal void InjectInDB(Table table, List<string> list)
         {
+            list.Remove("");
             var data = ConvertListInPersons(table, list);
             if (table == Table.PersonsList)
             {

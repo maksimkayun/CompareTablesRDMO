@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using UIFormRDMO.Data.Models;
 using UIFormRDMO.Enums;
@@ -31,6 +32,16 @@ namespace UIFormRDMO.WorkingElements
             }
 
             return _context.PersonDbs;
+        }
+        
+        public static (string firstTable, string secondTable) GetListsByString(string arg)
+        {
+            var t = arg;
+            var index = t.IndexOf("=", StringComparison.Ordinal);
+            var firstTable = t.Substring(0, index);
+            var secondTable = t.Substring(index + 3);
+            
+            return (firstTable, secondTable);
         }
     }
 }
