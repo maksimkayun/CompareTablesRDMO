@@ -3,8 +3,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using OfficeOpenXml;
 using UIFormRDMO.Data.Models;
 using UIFormRDMO.Enums;
+using UIFormRDMO.ExcelWork;
 using UIFormRDMO.WorkingElements;
 
 namespace UIFormRDMO
@@ -155,6 +157,10 @@ namespace UIFormRDMO
                         Worker.Compare(_context);
                         Worker.PrepareResultTable();
                         helper.WriteToFile("res", Path);
+
+                        var package = new ExcelPackage();
+                        package.GenerateListInFile(_context.ResultList, "Результирующий список");
+                        File.WriteAllBytes(helper.GetFullPathForExel("res", Path), package.GetAsByteArray());
                     }
                     catch (Exception e)
                     {

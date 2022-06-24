@@ -129,16 +129,26 @@ namespace UIFormRDMO.WorkingElements
             }
         }
 
+        public string GetFullPathForExel(string filename, string? path)
+        {
+            var prepareToDelete = path?.Split('/').LastOrDefault();
+            path = path?.Replace(prepareToDelete, "");
+            
+            return $@"{path}{filename}.xlsx";
+        }
+        
+        [Obsolete("Используйте ExcelPackage")]
         public void WriteToFile(string filename, string? path)
         {
             var prepareToDelete = path?.Split('/').LastOrDefault();
             path = path?.Replace(prepareToDelete, "");
             
             string fullpath = $@"{path}{filename}.txt";
-            StreamWriter sw = new StreamWriter(fullpath);
-            
-            sw.Write(CustomToString());
-            sw.Close();
+            using (StreamWriter sw = new StreamWriter(fullpath))
+            {
+                sw.Write(CustomToString());
+                sw.Close();
+            }
         }
 
         public string CustomToString()

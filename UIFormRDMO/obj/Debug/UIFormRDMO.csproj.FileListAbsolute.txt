@@ -9,3 +9,10 @@ C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.csproj.Cor
 C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.exe
 C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.pdb
 C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.Form1.resources
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\EPPlus.dll
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\EPPlus.xml
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\maksk\Desktop\GIT\UIFormRDMO\UIFormRDMO\obj\Debug\UIFormRDMO.csproj.CopyComplete
