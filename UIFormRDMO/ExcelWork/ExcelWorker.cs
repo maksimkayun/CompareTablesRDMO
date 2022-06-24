@@ -17,7 +17,7 @@ public static class ExcelWorker
             sheetResult.Cells["C1"].Value = "Дата аттестации";
             sheetResult.Cells["D1"].Value = "Дата МЕД";
 
-            var row = 1;
+            var row = 2;
             var column = 1;
             resultList.ForEach(person =>
             {
