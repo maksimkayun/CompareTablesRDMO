@@ -110,7 +110,7 @@ namespace UIFormRDMO.WorkingElements
         /// </summary>
         public static void PrepareResultTable(bool writeToFile = false)
         {
-            _outOfDB.Clear(); FillOutOfDB();
+            //_outOfDB.Clear(); FillOutOfDB();
             
             _context.PersonLists.ForEach(e =>
             {
@@ -148,6 +148,11 @@ namespace UIFormRDMO.WorkingElements
             if (!String.IsNullOrEmpty(findPerson.DateMed))
             {
                 person.DateMed = findPerson.DateMed;
+            }
+            
+            if (!String.IsNullOrEmpty(findPerson.Position))
+            {
+                person.Position = findPerson.Position;
             }
         }
 

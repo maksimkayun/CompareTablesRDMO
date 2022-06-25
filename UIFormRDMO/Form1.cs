@@ -15,16 +15,22 @@ namespace UIFormRDMO
         public Form1()
         {
             InitializeComponent();
-            PathLabel.Text = UIFormRDMO.Menu.Path;
+            PathLabel.Font = new Font("Times New Roman", 13);
+            PathField.Font = new Font("Times New Roman", 13);
+            PathLabel.Text = $@"Текущий путь: {UIFormRDMO.Menu.Path}";
             PathField.Text = UIFormRDMO.Menu.Path;
-            BeginCompare_Label.Font = new Font("Times New Roman", 14, FontStyle.Bold);
+            BeginCompare_Label.Font = new Font("Times New Roman", 13, FontStyle.Bold);
+            Info_Label.Font = new Font("Times New Roman", 13);
+            Info_Label.Text =
+                "Введите полный путь до файла с названием и его раширением, пример: C:/System/file.txt\n" +
+                "!!!Напоминание - в файле сперва идёт список от МИ, потом == и уже после - штатка!!!";
         }
 
         private void GetPath_Click(object sender, EventArgs e)
         {
             var args = new[] { "1", PathField.Text };
             UIFormRDMO.Menu.StartWork(args);
-            PathLabel.Text = UIFormRDMO.Menu.Path;
+            PathLabel.Text = $@"Текущий путь: {UIFormRDMO.Menu.Path}";
         }
 
         private void StartCompareBtn_Click(object sender, EventArgs e)

@@ -136,8 +136,7 @@ namespace UIFormRDMO
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine($"Что-то пошло не так! {e.Message}\n{e.StackTrace}");
-                        return $"При заполнении данных что-то пошло не так! Повторите попытку!";
+                        return $"При заполнении данных что-то пошло не так! Проверьте путь и повторите попытку!";
                     }
 
                     return "ok";
@@ -156,7 +155,7 @@ namespace UIFormRDMO
                     {
                         Worker.Compare(_context);
                         Worker.PrepareResultTable();
-                        helper.WriteToFile("res", Path);
+                        //helper.WriteToFile("res", Path);
 
                         var package = new ExcelPackage();
                         package.GenerateListInFile(_context.ResultList, "Результирующий список");
