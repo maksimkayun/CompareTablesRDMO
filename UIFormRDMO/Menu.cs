@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using OfficeOpenXml;
+using UIFormRDMO.Data;
 using UIFormRDMO.Data.Models;
 using UIFormRDMO.Enums;
 using UIFormRDMO.ExcelWork;
@@ -75,8 +76,8 @@ namespace UIFormRDMO
         
         public static string StartWork(string[] variants)
         {
-            
 
+            string message = "";
             switch (int.Parse(variants[0]))
             {
                 case 0:
@@ -97,7 +98,7 @@ namespace UIFormRDMO
                     // }
                     
                     Path = variants[1];
-                    return "ok";
+                    break;
                 }
                 case 2:
                 {
@@ -139,13 +140,13 @@ namespace UIFormRDMO
                         return $"При заполнении данных что-то пошло не так! Проверьте путь и повторите попытку!";
                     }
 
-                    return "ok";
+                    break;
                 }
                 case 5:
                 {
                     // Очистить списки
                     helper.ClearDB();
-                    Console.WriteLine("Вся база очищена");
+                    message = "Вся база очищена";
                     break;
                 }
                 case 6:
@@ -165,7 +166,8 @@ namespace UIFormRDMO
                     }
                     catch (Exception e)
                     {
-                        return $"При сравнении что-то пошло не так! Проверьте путь и повторите попытку!";
+                        return $"При сравнении что-то пошло не так! Проверьте путь и повторите попытку! " +
+                               $"{e.ToErrorObject().ErrorCode}";
                     }
                     break;
                 }
@@ -176,7 +178,7 @@ namespace UIFormRDMO
                 }
             }
 
-            return "ok";
+            return $"ok {message}";
         }
     }
 }

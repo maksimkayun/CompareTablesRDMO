@@ -112,8 +112,8 @@
             this.Controls.Add(this.PathLabel);
             this.Controls.Add(this.GetPath);
             this.Controls.Add(this.PathField);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ФОРМА RDMO";
+            this.Text = "RDMO";
             this.ResumeLayout(false);
             this.PerformLayout();
         }
