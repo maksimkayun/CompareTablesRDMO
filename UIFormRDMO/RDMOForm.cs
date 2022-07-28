@@ -40,14 +40,14 @@ namespace UIFormRDMO
                 BeginCompare_Label.Text = "";
                 var args = new[] { "4" };
                 var callback4 = UIFormRDMO.Menu.StartWork(args);
-                if (callback4 != "ok")
+                if (!callback4.StartsWith("ok"))
                 {
                     throw new Exception(callback4);
                 }
             
                 args = new[] { "6" };
                 var callback6= UIFormRDMO.Menu.StartWork(args);
-                if (callback6 != "ok")
+                if (!callback6.StartsWith("ok"))
                 {
                     throw new Exception(callback6);
                 }
