@@ -162,7 +162,7 @@ namespace UIFormRDMO
                         package.GenerateListInFile(_context.ResultList, "Результирующий список");
                         package.GenerateListInFile(Worker.OutOfDB, "Нет в списках МИ");
                         package.GenerateListInFile(Worker.OutOfRDMO, "Нет в списках штат");
-                        File.WriteAllBytes(helper.GetFullPathForExel("res", Path), package.GetAsByteArray());
+                        File.WriteAllBytes(helper.GetFullPathForExel(Path, "res"), package.GetAsByteArray());
                     }
                     catch (Exception e)
                     {

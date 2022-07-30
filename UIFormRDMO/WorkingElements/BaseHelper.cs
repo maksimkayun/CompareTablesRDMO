@@ -129,7 +129,7 @@ namespace UIFormRDMO.WorkingElements
             }
         }
 
-        public string GetFullPathForExel(string filename, string? path)
+        public string GetFullPathForExel(string? path, string filename)
         {
             var prepareToDelete = path?.Split('/').LastOrDefault();
             path = path?.Replace(prepareToDelete, "");
